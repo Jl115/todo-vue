@@ -53,17 +53,9 @@ const validateTodoValue = (todoValue) => {
     return true;
 };
 
-// Use useField to create reactive state for todoName and value
 const { value: todoName, errorMessage: todoNameError } = useField('todoName', validateTodoName);
 const { value: todoValue, errorMessage: todoValueError } = useField('todoValue', validateTodoValue);
 
-// Define a computed property for todoName to be used with v-model
-// const todoNameComputed = computed({
-//   get() { return todoName.value; },
-//   set(val) {
-//     todoName.value = val;
-//   }
-// });
 const createTodo = () => {
     fetch('http://localhost:8080/api/products/create', {
         method: 'POST',
